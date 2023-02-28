@@ -85,7 +85,7 @@
             signinBtn.classList.remove("disable");
             email = emailid.value;
             password = passwordid.value;
-            axios.post('http://127.0.0.1:8000/api/signin/',{email,password})
+            axios.post('http://13.231.225.7:8000/api/signin/',{email,password})
             .then(response=>{
             document.cookie = "username=" + response.data['username'];
             console.log(document.cookie);
@@ -120,7 +120,7 @@
             email = emailid.value;
             phone_number = phone_numberid.value;
 
-            axios.post('http://127.0.0.1:8000/api/signup/',{first_name,last_name,email,phone_number})
+            axios.post('http://13.231.225.7:8000/api/signup/',{first_name,last_name,email,phone_number})
             .then(response=>console.log(response.data))
             .catch((e)=>{
                 document.getElementById("errmsg").innerHTML = "Invalid email/password";

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <link rel = "stylesheet" href="textList.css">
+    <link rel = "stylesheet" href="css/textList.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Text List</title>
@@ -54,7 +54,7 @@
     </div>
     <script>
         var navLinks = document.getElementById("navLinks");
-        let p = fetch("http://127.0.0.1:8000/api/text/");
+        let p = fetch("http://13.231.225.7:8000/api/text/");
         p.then((value1) =>{
             return value1.json()
         }).then((value2) => {
