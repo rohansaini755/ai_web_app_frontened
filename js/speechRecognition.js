@@ -53,7 +53,6 @@ document.querySelector("#fetchTextid").onclick = () => {
 
 function fetchData(element){
     let p = fetch("http://13.231.225.7:8000/api/text/")
-    let p2  = fetch("http://goweather.herokuapp.com/weather/Ny")
     p.then((value1) =>{
         return value1.json()
     }).then((value2) => {
