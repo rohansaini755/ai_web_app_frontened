@@ -47,31 +47,31 @@ if ("webkitSpeechRecognition" in window) {
 
 
 
-document.querySelector("#fetchTextid").onclick = () => {
-    fetchData(this);
-};
+// document.querySelector("#fetchTextid").onclick = () => {
+//     fetchData(this);
+// };
 
-function fetchData(element){
-    let p = fetch("http://13.231.225.7:8000/api/text/")
-    p.then((value1) =>{
-        return value1.json()
-    }).then((value2) => {
-        console.log(value2)
-        const obj = JSON.parse(value2)
-        const text = obj.name
-        const textn = hexToString(obj.hindiText)
-        const hint = obj.hintString
-        const hintn = hexToString(hint)
-        // document.getElementById("textarea2").value = textn
-        document.querySelector("#final2").innerHTML = textn
-        document.querySelector("#final3").innerHTML = hintn
-    })
-}
+// function fetchData(element){
+//     let p = fetch("http://13.231.225.7:8000/api/text/")
+//     p.then((value1) =>{
+//         return value1.json()
+//     }).then((value2) => {
+//         console.log(value2)
+//         const obj = JSON.parse(value2)
+//         const text = obj.name
+//         const textn = hexToString(obj.hindiText)
+//         const hint = obj.hintString
+//         const hintn = hexToString(hint)
+//         // document.getElementById("textarea2").value = textn
+//         document.querySelector("#final2").innerHTML = textn
+//         document.querySelector("#final3").innerHTML = hintn
+//     })
+// }
 
 
-function hexToString(hexRepresentation) {
-    let byteArray = new Uint8Array(hexRepresentation.match(/[\da-f]{2}/gi).map(function (h) {
-      return parseInt(h, 16)
-    }))
-    return new TextDecoder().decode(byteArray)
-}
+// function hexToString(hexRepresentation) {
+//     let byteArray = new Uint8Array(hexRepresentation.match(/[\da-f]{2}/gi).map(function (h) {
+//       return parseInt(h, 16)
+//     }))
+//     return new TextDecoder().decode(byteArray)
+// }

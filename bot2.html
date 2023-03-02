@@ -29,7 +29,7 @@
       <select class="form-select bg-secondary text-light mt-2" id="select_dialect"></select>
     </div>
     <h2 class="mt-4 text-light">Transcript</h2>
-    <div class="p-3" style="border: 1px solid gray; height: 300px; border-radius: 8px;">
+    <div class="p-3" style="border: 1px solid gray; height: 300px; border-radius: 8px;overflow-y:auto;">
       <span id="final" class="text-light"></span>
       <span id="interim" class="text-secondary"></span>
     </div>
@@ -42,22 +42,29 @@
   </div>
   <div class="cont2" style="flex-basis: 200px;margin: 0px 20px">
     <h2 class="mt-4 text-light">Script</h2>
-    <div class="p-3" style="border: 1px solid gray;width:500px;height:460px;border-radius: 8px;">
+    <div class="p-3" style="border: 1px solid gray;width:600px;height:460px;border-radius: 8px;overflow-y:auto;">
       <span id="final2" class="text-light"></span>
       <span id="interim2" class="text-secondary"></span>
-    </div>
-    <div class="mt-4">
-      <button class="btn btn-success" id="fetchTextid">Text</button>
     </div>
   </div>
   <div class="cont3" style="flex-basis: 200px;margin: 0px 20px">
     <h2 class="mt-4 text-light">Hint</h2>
-    <div class="p-3" style="border: 1px solid gray;width:400px;height:460px;border-radius: 8px;">
+    <div class="p-3" style="border: 1px solid gray;width:300px;height:460px;border-radius: 8px;overflow-y:auto;">
       <span id="final3" class="text-light"></span>
       <span id="interim3" class="text-secondary"></span>
     </div>
-    <div class="mt-4">
-      <button class="btn btn-success" id="hint">Hint</button>
+    <div>
+      <div class="p-4" style="display:flex;justify-content: space-between;margin-left:-20px;">
+        <div class="p-4-1">
+          <textarea id="vocab1" placeholder="word" rows="4" cols="50" style="width:150px;height:50px;border-radius:8px;resize:none;"></textarea>
+        </div>
+        <div class="p-4-2">
+          <textarea id="vocab2" placeholder="description" rows="4" cols="50" style="width:150px;height:50px;border-radius:8px;resize:none;"></textarea>
+        </div>
+      </div>
+      <div style="margin-top:-15px;margin-left:5px;">
+        <button class="btn btn-success" id="submit">Add</button>
+      </div>
     </div>
   </div>
   </body>

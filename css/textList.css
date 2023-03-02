@@ -87,9 +87,9 @@ nav .fa{
     overflow-x: hidden;
 }
 .tableHeader{
-    color: gray;
-    border: 1px solid red;
+    color: black;
     text-align: left;
+    background-color:gray;
 }
 #text-table{
     width: 600px;

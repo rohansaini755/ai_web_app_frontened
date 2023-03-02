@@ -20,7 +20,7 @@
                 <li><a href="">HOME</a></li>
                 <li><a href="">ABOUT</a></li>
                 <li><a href="">COURSE</a></li>
-                <li><a href="">BLOG</a></li>
+                <li><a href="textList.html">TEXTSET</a></li>
                 <li><a href="">CONTACT</a></li>
                 <li><a href="signup.html">SIGNIN</a></li>
             </ul>
@@ -32,13 +32,13 @@
     <div class="text-box">
        
         <table id="text-table" class="text-box1">
-            <tr class="tableHeader">
+            <tr id="table-header" class="tableHeader">
                 <th style="text-align:center;">Status</th>
-                <th>Serial No</th>
-                <th>Title</th>
-                <th>Try</th>
-                <th>Performance</th>
-                <th>Level</th>
+                <th style="text-align:center;">Serial No</th>
+                <th style="text-align:center;">Title</th>
+                <th style="text-align:center;">Try</th>
+                <th style="text-align:center;">Performance</th>
+                <th style="text-align:center;">Level</th>
             </tr>
 
             <!--<tr>
@@ -54,18 +54,20 @@
     </div>
     <script>
         var navLinks = document.getElementById("navLinks");
-        let p = fetch("http://13.231.225.7:8000/api/text/");
+        let p = fetch("http://13.231.225.7:8000/api/text_list/");
         p.then((value1) =>{
             return value1.json()
         }).then((value2) => {
             const obj = JSON.parse(value2)
             //console.log(obj.length())
             for(i in obj){
-                const text = obj[i].name
+                const name = obj[i].name
+                const level = obj[i].level
+                const id = obj[i].id
                 const textn = hexToString(obj[i].hindiText)
                 const hint = obj[i].hintString
                 const hintn = hexToString(hint)
-                addList(text,hintn,i)
+                addList(name,id,level)
 
             }
             
@@ -75,7 +77,7 @@
             
         })
         .catch((err) => {
-            alert(err);
+            console.log(err);
             //document.getElementById("errormsg").innerHTML = err;
             //setTimeout(()=>{
             //    document.getElementById("errormsg").innerHTML = "";
@@ -93,7 +95,7 @@
         function hideMenu(){
             navLinks.style.right = "-200px";
         }
-        function addList(textn,hintn,i){
+        function addList(name,i,level){
             var tr = document.createElement('tr');
 
             var td1 = tr.appendChild(document.createElement('td'));
@@ -102,18 +104,22 @@
             var td4 = tr.appendChild(document.createElement('td'));
             var td5 = tr.appendChild(document.createElement('td'));
             var td6 = tr.appendChild(document.createElement('td'));
-            td1.innerHTML = "Y";
+            td1.innerHTML = "";
             td2.innerHTML = i;
-            td3.innerHTML = textn;
-            td4.innerHTML = "link";
+            td3.innerHTML = name;
+            td4.innerHTML = '';
             td5.innerHTML = "";
-            td6.innerHTML = "Easy";
+            td6.innerHTML = level;
             td1.style="color:green;padding:7px;text-align:center;";
-            td2.style="color:white;padding:7px;";
-            td3.style="color:white;padding:7px;";
-            td4.style="color:blue;padding:7px;";
-            td6.style="color:green;padding:7px;";
-            td6.style="color:green;padding:7px;";
+            td2.style="color:white;padding:7px;text-align:center;";
+            td3.style="color:white;padding:7px;text-align:center;cursor:pointer;";
+            td4.style="color:red;padding:7px;text-align:center;";
+            td6.style="color:green;padding:7px;text-align:center;";
+            td6.style="color:green;padding:7px;text-align:center;";
+            td3.onclick = () => {
+                this.style = "color:blue;padding:7px;text-align:center;"
+                alert(td2.innerHTML);
+            }
 
             document.getElementById("text-table").appendChild(tr);
         }
